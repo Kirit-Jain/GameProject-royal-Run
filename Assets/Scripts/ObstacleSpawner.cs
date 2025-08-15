@@ -4,11 +4,10 @@ using UnityEngine;
 public class ObstacleSpawner : MonoBehaviour
 {
     //Tuning Variables
-    [SerializeField] GameObject obstaclePrefab;
+    [SerializeField] GameObject[] obstaclePrefabs;
+    [SerializeField] Transform obstacleParent;
     [SerializeField] float obstacleSpawnDelay = 1f;
-
-    //Game Variable
-    int obstacleSpawned = 0;
+    [SerializeField] float spawnWidth = 4f;
 
     void Start()
     {
@@ -17,11 +16,12 @@ public class ObstacleSpawner : MonoBehaviour
 
     IEnumerator SpawnObstacleCoRoutine()
     {
-        while (obstacleSpawned < 5)
+        while (true)
         {
+            GameObject obstaclePrefab = obstaclePrefabs[Random.Range(0, obstaclePrefabs.Length)];
+            Vector3 spawnPosition = new Vector3(Random.Range(-spawnWidth, spawnWidth), transform.position.y, transform.position.z);
             yield return new WaitForSeconds(obstacleSpawnDelay);
-            Instantiate(obstaclePrefab, transform.position, Quaternion.identity);
-            obstacleSpawned++;
+            Instantiate(obstaclePrefab, spawnPosition, Random.rotation, obstacleParent);
         }
     }
 }
