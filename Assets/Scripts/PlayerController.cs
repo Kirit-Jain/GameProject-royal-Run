@@ -5,6 +5,8 @@ public class PlayerController : MonoBehaviour
 {
     //Tuning Variables
     [SerializeField] float moveSpeed = 5f;
+    [SerializeField] float xClamp = 5f;
+    [SerializeField] float zClamp = 5f;
 
     //Refrence Variable
     Rigidbody rb;
@@ -34,6 +36,10 @@ public class PlayerController : MonoBehaviour
         Vector3 currentPosition = rb.position;
         Vector3 moveDirection = new Vector3(movement.x, 0f, movement.y);
         Vector3 newPosition = currentPosition + (moveDirection * (Time.fixedDeltaTime * moveSpeed));
+
+        //Clamping the x and z of the newPosition
+        newPosition.x = Mathf.Clamp(newPosition.x, -xClamp, xClamp);
+        newPosition.z = Mathf.Clamp(newPosition.z, -zClamp, zClamp);
 
 
         rb.MovePosition(newPosition);
