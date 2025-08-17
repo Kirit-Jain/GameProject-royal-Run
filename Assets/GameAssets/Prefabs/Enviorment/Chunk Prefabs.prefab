@@ -51,6 +51,10 @@ MonoBehaviour:
   coinPrefab: {fileID: 1327358659357058453, guid: 0fca985bb413f2245b2fcf31412a506f, type: 3}
   coinSpwanChance: 0.5
   coinSeperationLength: 1.5
+  lanes:
+  - -3
+  - 0
+  - 3
 --- !u!1 &3033104513232536759
 GameObject:
   m_ObjectHideFlags: 0

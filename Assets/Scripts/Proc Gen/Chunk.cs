@@ -9,9 +9,9 @@ public class Chunk : MonoBehaviour
     [SerializeField] GameObject coinPrefab;
     [SerializeField] float coinSpwanChance = 0.5f;
     [SerializeField] float coinSeperationLength = 2f;
+    [SerializeField] float[] lanes = { -2.5f, 0f, 2.5f };
 
 
-    float[] lanes = { -2.5f, 0f, 2.5f };
     List<int> availableLanes = new List<int> { 0, 1, 2 };
 
     void Start()
