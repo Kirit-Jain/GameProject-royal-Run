@@ -13,7 +13,7 @@
 *.log
 
 # Ignore 3rd Party 
-Assets\GameAssets\3rd Party imported assets
+Assets\GameAssets\3rd\ Party\ imported\ assets
 
 # By default unity supports Blender asset imports, *.blend1 blender files do not need to be commited to version control.
 *.blend1
