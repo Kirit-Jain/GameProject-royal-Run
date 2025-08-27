@@ -6,9 +6,9 @@ public class Apple : PickUp
 
     LevelGenerator levelGenerator;
 
-    void Start()
+    public void Init(LevelGenerator levelGenerator)
     {
-        levelGenerator = FindFirstObjectByType<LevelGenerator>();
+        this.levelGenerator = levelGenerator;
         if (levelGenerator == null)
             Debug.LogError("No Level Generator found in scene, please add one");
     }

@@ -7,9 +7,9 @@ public class Coin : PickUp
     ScoreboardManager scoreboardManager;
 
 
-    void Start()
+    public void Init(ScoreboardManager scoreboardManager)
     {
-        scoreboardManager = FindFirstObjectByType<ScoreboardManager>();
+        this.scoreboardManager = scoreboardManager;
         if (scoreboardManager == null)
             Debug.LogError("No Scoreboard Manager found in scene, please add one");
     }
