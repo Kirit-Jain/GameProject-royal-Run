@@ -16,6 +16,6 @@ public class Apple : PickUp
     protected override void OnPickUp()
     {
         levelGenerator.ChangeChunkMoveSpeed(adjustChangeMoveSpeed);
-        Debug.Log("Add 1 to speed");
+        // Debug.Log("Add 1 to speed");
     }
 }
