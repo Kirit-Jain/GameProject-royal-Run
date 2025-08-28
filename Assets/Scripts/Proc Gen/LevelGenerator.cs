@@ -15,7 +15,8 @@ public class LevelGenerator : MonoBehaviour
     [Header("Level Generation Settings")]
     [Tooltip("We start with this many chunks")]
     [SerializeField] int startingChunkAmount = 12;
-    [SerializeField] int checkpointChunkInterval = 8;
+    [SerializeField] int maxCheckPointInterval = 14;
+    [SerializeField] int minCheckPointInterval = 8;
     [SerializeField] float chunkLength = 10f;
     [SerializeField] float moveSpeed = 8f;
     [SerializeField] float minMoveSpeed = 2f;
@@ -29,7 +30,8 @@ public class LevelGenerator : MonoBehaviour
     List<GameObject> chunks = new List<GameObject>();
     int totalWeight = 100;
     int chunk_base_weight = 70;
-    int chunksSpawned = 0;
+    int checkpointChunkInterval = 8;
+    int checkpointChunksSpawnedPos = 0; //The position at which the checkpoint is being spawned
 
 
     void Start()
@@ -82,15 +84,20 @@ public class LevelGenerator : MonoBehaviour
         newChunk.Init(this, scoreboardManager);
 
 
-        chunksSpawned++;
+        checkpointChunksSpawnedPos++;
     }
 
     GameObject ChooseChunkToSpawn()
     {
         GameObject chunkToSpawn;
 
-        if (chunksSpawned % checkpointChunkInterval == 0 && chunksSpawned != 0)
+        if (checkpointChunksSpawnedPos % checkpointChunkInterval == 0 && checkpointChunksSpawnedPos != 0)
+        {
             chunkToSpawn = CheckpointChunkPrefab;
+            checkpointChunkInterval = Random.Range(minCheckPointInterval, maxCheckPointInterval + 1);
+            //Reseting the variable to make sure that the next checkpoint is spawned atleast after 8 chunks
+            checkpointChunksSpawnedPos = 0;
+        }
         else
             chunkToSpawn = chunkPrefab[ChunkSelection()];
         return chunkToSpawn;
