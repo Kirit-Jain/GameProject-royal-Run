@@ -7,11 +7,17 @@ public class ObstacleSpawner : MonoBehaviour
     [SerializeField] GameObject[] obstaclePrefabs;
     [SerializeField] Transform obstacleParent;
     [SerializeField] float obstacleSpawnDelay = 1f;
+    [SerializeField] float minObstacleSpawnDelay = 1f;
     [SerializeField] float spawnWidth = 4f;
 
     void Start()
     {
         StartCoroutine(SpawnObstacleCoRoutine());
+    }
+
+    public void DecreaseSpawnTime(float amount)
+    {
+        obstacleSpawnDelay = Mathf.Max(minObstacleSpawnDelay, obstacleSpawnDelay - amount);
     }
 
     IEnumerator SpawnObstacleCoRoutine()

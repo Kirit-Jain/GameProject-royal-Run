@@ -11,6 +11,7 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField] GameObject CheckpointChunkPrefab;
     [SerializeField] Transform chunkParent;
     [SerializeField] ScoreboardManager scoreboardManager;
+    [SerializeField] PlayerController playerController;
 
     [Header("Level Generation Settings")]
     [Tooltip("We start with this many chunks")]
@@ -59,6 +60,9 @@ public class LevelGenerator : MonoBehaviour
 
             Physics.gravity = new Vector3(Physics.gravity.x, Physics.gravity.y, newGravityZ);
             cameraController.ChangeCameraFOV(speedAmount);
+
+            if (moveSpeed > 8f)
+                playerController.ChangeMoveSpeed(speedAmount);
         }
     }
 

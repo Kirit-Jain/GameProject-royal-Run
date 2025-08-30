@@ -18,7 +18,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 566194103400238707, guid: 9e3740eea4654ff4595607f1fa3a28c2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 566194103400238707, guid: 9e3740eea4654ff4595607f1fa3a28c2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -129,7 +129,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 773677881975196445, guid: baf46f01f05f5fa48b0a477008dc24f3, type: 3}
       propertyPath: m_Name
-      value: Chunk_LighPostRight
+      value: Chunk_LighPostRigh
       objectReference: {fileID: 0}
     - target: {fileID: 1215084864782191183, guid: baf46f01f05f5fa48b0a477008dc24f3, type: 3}
       propertyPath: m_LocalPosition.x

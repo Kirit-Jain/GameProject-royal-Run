@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 100
-  scoreAmount: 100
+  scoreAmount: 1
 --- !u!65 &6981174987685144690
 BoxCollider:
   m_ObjectHideFlags: 0

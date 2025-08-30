@@ -5,11 +5,14 @@ public class PlayerController : MonoBehaviour
 {
     //Tuning Variables
     [SerializeField] float moveSpeed = 5f;
+    [SerializeField] float minMoveSpeed = 5f;
+    [SerializeField] float maxMoveSpeed = 13f;
     [SerializeField] float xClamp = 5f;
     [SerializeField] float zClamp = 5f;
 
     //Refrence Variable
     Rigidbody rb;
+    LevelGenerator levelGenerator;
 
     //Variables
     Vector2 movement; //input variable
@@ -28,6 +31,12 @@ public class PlayerController : MonoBehaviour
     {
         movement = context.ReadValue<Vector2>();
         // Debug.Log(movement);
+    }
+
+    public void ChangeMoveSpeed(float amount)
+    {
+        moveSpeed += amount;
+        moveSpeed = Mathf.Clamp(moveSpeed, minMoveSpeed, maxMoveSpeed);
     }
     
 

@@ -12,7 +12,7 @@ public class Rock : MonoBehaviour
     CinemachineImpulseSource cinemachineImpulseSource;
     AudioSource audioSource;
 
-    float cooldownTimer = 0f;
+    float cooldownTimer = 1f;
 
     void Awake()
     {
